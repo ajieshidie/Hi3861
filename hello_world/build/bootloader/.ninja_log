@@ -108,3 +108,7 @@
 3789	5387	7385302583896741	D:/Code/VSCode/ESP32/hello_world/build/bootloader/.bin_timestamp	9c47c13f27d21f5d
 5387	6074	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338
 5387	6074	0	D:/Code/VSCode/ESP32/hello_world/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338
+38	204	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338
+38	204	0	D:/Code/VSCode/ESP32/hello_world/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338
+16	88	0	esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338
+16	88	0	D:/Code/VSCode/ESP32/hello_world/build/bootloader/esp-idf/esptool_py/CMakeFiles/bootloader_check_size	dabe343fe1bb2338

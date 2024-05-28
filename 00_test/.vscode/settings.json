@@ -15,5 +15,22 @@
     "idf.portWin": "COM5",
     "idf.pythonBinPathWin": "D:\\Data\\IoT\\ESP32\\.espressif\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
     "idf.toolsPathWin": "D:\\Data\\IoT\\ESP32\\.espressif",
-    "idf.flashType": "UART"
+    "idf.flashType": "UART",
+    "files.associations": {
+        "random": "c",
+        "cstdio": "c",
+        "freertos.h": "c",
+        "task.h": "c",
+        "esp_err.h": "c",
+        "esp_rom_gpio.h": "c",
+        "inttypes.h": "c",
+        "stdio.h": "c",
+        "sdkconfig.h": "c",
+        "gpio.h": "c",
+        "gpio_types.h": "c",
+        "queue.h": "c",
+        "uart.h": "c",
+        "dac.h": "c",
+        "stdint.h": "c"
+    }
 }

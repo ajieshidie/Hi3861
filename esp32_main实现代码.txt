@@ -1,0 +1,167 @@
+/*********************01.LED2实现闪烁*****************************/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <inttypes.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+
+#include "sdkconfig.h"
+#include "driver/gpio.h"
+#include "rom/gpio.h"
+
+#define GPIO_OUTPUT_IO_0 2
+#define GPIO_OUTPUT_PIN_SEL 1ULL << GPIO_OUTPUT_IO_0
+#define LED 2
+
+void LED_Task(void *pvParameter)
+{
+    esp_rom_gpio_pad_select_gpio(LED);         // 选择芯片引脚
+    gpio_set_direction(LED, GPIO_MODE_OUTPUT); // 设置为输出模式
+    while (1)
+    {
+        gpio_set_level(LED, 0);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gpio_set_level(LED, 1);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
+
+// void app_main(void)
+// {
+//     xTaskCreate(&LED_Task, "LED_Task", configMINIMAL_STACK_SIZE, NULL, 5, NULL); // 新建一个任务
+// }
+
+void app_main(void)
+{
+    gpio_config_t io_conf;
+    io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
+    io_conf.mode = GPIO_MODE_OUTPUT;
+    io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
+    io_conf.pull_down_en = 0;
+    io_conf.pull_up_en = 0;
+    gpio_config(&io_conf);
+    int cnt = 0;
+    while (1)
+    {
+        printf("cnt:%d\n", cnt++);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gpio_set_level(GPIO_OUTPUT_IO_0, cnt % 2);
+    }
+}
+
+
+/*********************02.中断示例程序*****************************/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <inttypes.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+
+#include "sdkconfig.h"
+#include "driver/gpio.h"
+#include "rom/gpio.h"
+
+#define GPIO_OUTPUT_IO_0 18
+#define GPIO_OUTPUT_PIN_SEL (1ULL << GPIO_OUTPUT_IO_0)
+
+#define GPIO_INPUT_IO_0 4
+#define GPIO_INPUT_PIN_SEL (1ULL << GPIO_INPUT_IO_0)
+#define ESP_INTR_FLAG_DEFAULT 0
+
+static QueueHandle_t gpio_evt_queue = NULL; // Free RTOS的队列句柄
+
+static void IRAM_ATTR gpio_isr_handler(void *arg)
+{
+    uint32_t gpio_num = (uint32_t)arg;
+    xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
+}
+
+static void gpio_task_example(void *arg)
+{
+    uint32_t io_num;
+    for (;;)
+    {
+        if (xQueueReceive(gpio_evt_queue, &io_num, portMAX_DELAY))
+        {
+            printf("GPIO[%ld] intr, val:%d\n", io_num, gpio_get_level(io_num));
+        }
+    }
+}
+
+void app_main(void)
+{
+    gpio_config_t io_conf;
+    io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
+    io_conf.mode = GPIO_MODE_OUTPUT;
+    io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
+    io_conf.pull_down_en = 0;
+    io_conf.pull_up_en = 0;
+    gpio_config(&io_conf);
+
+    io_conf.intr_type = GPIO_PIN_INTR_POSEDGE;
+    io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;
+    io_conf.mode = GPIO_MODE_INPUT;
+    io_conf.pull_up_en = 1;
+    gpio_config(&io_conf);
+    gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
+    xTaskCreate(gpio_task_example, "gpio_task_example", 2024, NULL, 10, NULL);
+    gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
+    gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, (void *)GPIO_INPUT_IO_0);
+    int cnt = 0;
+    while (1)
+    {
+        printf("cnt:%d\n", cnt++);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gpio_set_level(GPIO_OUTPUT_IO_0, cnt % 2);
+    }
+}
+
+
+/*********************03.模拟输入ADC*****************************/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <inttypes.h>
+#include <esp_log.h>
+#include <esp_adc_cal.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/queue.h"
+
+#include "sdkconfig.h"
+#include "driver/gpio.h"
+#include "driver/adc.h"
+#include "driver/uart.h"
+#include "rom/gpio.h"
+
+// ADC2通道0的GPIO口为P4
+void adc_Init(void)
+{
+    adc2_config_channel_atten(ADC2_CHANNEL_0, ADC_ATTEN_DB_6);
+}
+
+void app_main(void)
+{
+    int read_raw;
+    printf("APP Start.....\n");
+    adc_Init();
+    // adc1_config_width(ADC_ATTEN_DB_12);                        // 设置位宽
+    // adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_0); // 设置衰减
+    while (1)
+    {
+        // int val = hall_sensor_read();
+        // printf("The hall val:%d\n", val);
+        // vTaskDelay(100);
+        adc2_get_raw(ADC2_CHANNEL_0, ADC_WIDTH_BIT_12, &read_raw);
+        printf("ADC_Value: %d Voltage: %d mV\r\n", read_raw, (read_raw * 2200) / 4096);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
+}
+
