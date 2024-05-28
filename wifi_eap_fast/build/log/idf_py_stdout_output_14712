@@ -1,0 +1,48 @@
+-- Existing sdkconfig 'D:/Code/VSCode/ESP32/wifi_eap_fast/sdkconfig' renamed to 'D:/Code/VSCode/ESP32/wifi_eap_fast/sdkconfig.old'.
+-- Found Git: D:/Data/IoT/ESP32/.espressif/tools/idf-git/2.39.2/cmd/git.exe (found version "2.39.2.windows.1") 
+-- The C compiler identification is GNU 13.2.0
+-- The CXX compiler identification is GNU 13.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: D:/Data/IoT/ESP32/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/Data/IoT/ESP32/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/Data/IoT/ESP32/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- git rev-parse returned 'fatal: not a git repository (or any of the parent directories): .git'
+-- Could not use 'git describe' to determine PROJECT_VER.
+-- Building ESP-IDF components for target esp32
+-- Project sdkconfig file D:/Code/VSCode/ESP32/wifi_eap_fast/sdkconfig
+Loading defaults file D:/Code/VSCode/ESP32/wifi_eap_fast/sdkconfig.defaults...
+-- Compiler supported targets: xtensa-esp-elf
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of time_t
+-- Check size of time_t - done
+-- Found Python3: D:/Data/IoT/ESP32/.espressif/python_env/idf5.2_py3.11_env/Scripts/python.exe (found version "3.11.2") found components: Interpreter 
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
+-- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
+-- App "wifi_eap_fast" version: 1
+-- Adding linker script D:/Code/VSCode/ESP32/wifi_eap_fast/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-data.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.syscalls.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.newlib-funcs.ld
+-- Adding linker script D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/app_trace D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/app_update D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/bootloader D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/bootloader_support D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/bt D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/cmock D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/console D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/cxx D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/driver D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/efuse D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp-tls D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_adc D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_app_format D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_bootloader_format D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_coex D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_common D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_eth D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_event D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_gdbstub D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_hid D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_http_client D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_http_server D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_https_ota D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_https_server D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_hw_support D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_lcd D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_local_ctrl D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_mm D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_netif D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_netif_stack D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_partition D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_phy D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_pm D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_psram D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_ringbuf D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_rom D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_system D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_timer D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esp_wifi D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/espcoredump D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/esptool_py D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/fatfs D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/freertos D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/hal D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/heap D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/http_parser D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/idf_test D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/ieee802154 D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/json D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/log D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/lwip D:/Code/VSCode/ESP32/wifi_eap_fast/main D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/mbedtls D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/mqtt D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/newlib D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/nvs_flash D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/nvs_sec_provider D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/openthread D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/partition_table D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/perfmon D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/protobuf-c D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/protocomm D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/pthread D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/sdmmc D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/soc D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/spi_flash D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/spiffs D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/tcp_transport D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/ulp D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/unity D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/usb D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/vfs D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/wear_levelling D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/wifi_provisioning D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/wpa_supplicant D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Code/VSCode/ESP32/wifi_eap_fast/build
