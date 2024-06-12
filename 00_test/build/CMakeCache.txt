@@ -23,6 +23,9 @@
 //Value Computed by CMake
 00_test_SOURCE_DIR:STATIC=D:/Code/VSCode/ESP32/00_test
 
+//No help, variable specified on the command line.
+CCACHE_ENABLE:UNINITIALIZED=0
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=D:/Data/IoT/ESP32/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-addr2line.exe
 
@@ -302,7 +305,7 @@ ESP_PLATFORM:UNINITIALIZED=1
 GEN_FILES:BOOL=
 
 //Git command line client
-GIT_EXECUTABLE:FILEPATH=D:/Data/IoT/ESP32/.espressif/tools/idf-git/2.39.2/cmd/git.exe
+GIT_EXECUTABLE:FILEPATH=D:/Data/IoT/ESP_IDF_v4.4.7/.espressif/tools/idf-git/2.39.2/cmd/git.exe
 
 //IDF Build Target
 IDF_TARGET:STRING=esp32
@@ -336,6 +339,9 @@ Mbed TLS_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 Mbed TLS_SOURCE_DIR:STATIC=D:/Data/IoT/ESP32/esp/v5.2.1/esp-idf/components/mbedtls/mbedtls
+
+//No help, variable specified on the command line.
+PYTHON:UNINITIALIZED=D:\Data\IoT\ESP32\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe
 
 //No help, variable specified on the command line.
 PYTHON_DEPS_CHECKED:UNINITIALIZED=1
@@ -563,7 +569,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
 C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS:INTERNAL=1
 //Details about finding Git
-FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[D:/Data/IoT/ESP32/.espressif/tools/idf-git/2.39.2/cmd/git.exe][v2.39.2.windows.1()]
+FIND_PACKAGE_MESSAGE_DETAILS_Git:INTERNAL=[D:/Data/IoT/ESP_IDF_v4.4.7/.espressif/tools/idf-git/2.39.2/cmd/git.exe][v2.39.2.windows.1()]
 //Details about finding Python3
 FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[D:/Data/IoT/ESP32/.espressif/python_env/idf5.2_py3.11_env/Scripts/python.exe][cfound components: Interpreter ][v3.11.2()]
 //ADVANCED property for variable: GIT_EXECUTABLE

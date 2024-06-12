@@ -1,39 +1,22 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <inttypes.h>
-
-#include "esp_log.h"
-#include "esp_adc_cal.h"
-#include "esp_system.h"
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "freertos/queue.h"
-
-#include "sdkconfig.h"
 #include "driver/gpio.h"
-#include "driver/adc.h"
-#include "driver/dac.h"
-#include "driver/uart.h"
-#include "rom/gpio.h"
-
-void app_main(void)
+#include "sdkconfig.h"
+#define LED 18 // 定义输出引脚
+void LED_Task(void *pvParameter)
 {
-
-    uint8_t output_data = 0;
-    esp_err_t r;
-    gpio_num_t dac_gpio_num;
-    r = data_pad_get_io_num(DAC_CHANNEL_2, &dac_gpio_num);
-    assert(r == ESP_OK);
-    printf("DAC channel %d @ GPIO %d.\n", DAC_CHANNEL_2, dac_gpio_num);
-    dac_output_enable(DAC_CHANNEL_2);
-    vTaskDelay(2 * portTICK_PERIOD_MS);
-    printf("start conversion.\n");
+    gpio_pad_select_gpio(LED);                 // 选择芯片引脚
+    gpio_set_direction(LED, GPIO_MODE_OUTPUT); // 设置该引脚为输出模式
     while (1)
     {
-        dac_output_voltage(DAC_CHANNEL_2, output_data++);
-        printf("output_data %d @ GPIO %d.\n", output_data, dac_gpio_num);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gpio_set_level(LED, 0);                // 电平为低
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // 延迟1S
+        gpio_set_level(LED, 1);                // 电平为高
+        vTaskDelay(1000 / portTICK_PERIOD_MS); // 延迟1S
     }
+}
+void app_main() // 主函数
+{
+    xTaskCreate(&LED_Task, "LED_Task", configMINIMAL_STACK_SIZE, NULL, 5, NULL); // 新建一个任务
 }
